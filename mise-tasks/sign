@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 #MISE description="Sign image using cosign"
+cosign login $REGISTRY_URL --username $REGISTRY_USERNAME --password $GITHUB_TOKEN
 IMAGE_DIGEST=$(podman image inspect $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:latest --format '{{.Digest}}')
 cosign sign --yes $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME@$IMAGE_DIGEST
