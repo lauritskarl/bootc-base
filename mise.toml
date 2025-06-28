@@ -1,0 +1,8 @@
+[env]
+_.file = ".env"
+IMAGE_NAME = "bootc-base"
+ROOTFS = "btrfs"
+TYPE = "qcow2"
+
+[tasks.ci]
+depends = ["build", "tag", "login", "push", "sign"]

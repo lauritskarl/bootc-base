@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#MISE description="Pull the latest bootc image"
+podman pull $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:latest

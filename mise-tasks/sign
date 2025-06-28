@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#MISE description="Sign image using GitHub OIDC"
+IMAGE_DIGEST=$(podman image inspect $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME --format '{{.Digest}}')
+cosign sign --yes $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME@$IMAGE_DIGEST

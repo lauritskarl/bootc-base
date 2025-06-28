@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#MISE description="Push image to container registry"
+podman push $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:latest
+podman push $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:$(git rev-parse HEAD)

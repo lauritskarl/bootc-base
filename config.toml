@@ -1,0 +1,18 @@
+[[customizations.user]]
+name = "ansible"
+groups = ["wheel"]
+[[customizations.user]]
+name = "devops"
+groups = ["wheel"]
+[customizations.installer.kickstart]
+contents = """
+lang en_US
+timezone Europe/Tallinn --utc
+network --bootproto=dhcp --hostname=base
+%post  --interpreter=#!/usr/bin/env bash
+tailscale up --auth-key=xxx --ssh
+%end
+%post --erroronfail
+bootc switch --mutate-in-place --transport registry ghcr.io/lauritskarl/bootc-base:latest
+%end
+"""

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#MISE description="Verify image signature"
+cosign verify --key cosign.pub $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME
