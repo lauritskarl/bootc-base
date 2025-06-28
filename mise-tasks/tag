@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 #MISE description="Tag the image"
 podman tag $IMAGE_NAME:latest $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:latest
-podman tag $IMAGE_NAME:latest $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:$(git rev-parse HEAD)
+IMAGE_DIGEST=$(podman image inspect $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME --format '{{.Digest}}')
+podman tag $IMAGE_NAME:latest $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME@$IMAGE_DIGEST

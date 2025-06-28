@@ -1,4 +1,5 @@
 FROM quay.io/fedora/fedora-bootc:latest
+LABEL org.opencontainers.image.source https://github.com/lauritskarl/bootc-base
 ADD etc etc
 RUN dnf5 -y install 'dnf5-command(config-manager)'
 RUN dnf5 -y config-manager addrepo --from-repofile='https://pkgs.tailscale.com/stable/fedora/tailscale.repo'

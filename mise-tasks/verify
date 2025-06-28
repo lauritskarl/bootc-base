@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 #MISE description="Verify image signature"
-cosign verify --key cosign.pub $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME
+cosign verify --certificate-identity="karl@laurits.dev" --certificate-oidc-issuer="https://github.com/login/oauth" $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:latest
+
+# cosign verify --certificate-oidc-issuer="https://token.actions.githubusercontent.com" --certificate-identity="https://github.com/$REGISTRY_USERNAME/$IMAGE_NAME/.github/workflows/build-push-sign-image@refs/heads/main" $REGISTRY_URL/$REGISTRY_USERNAME/$IMAGE_NAME:latest

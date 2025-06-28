@@ -5,13 +5,7 @@ hostname: base
 users:
   - name: ansible
     groups: wheel
-    lock_passwd: true
-    ssh_authorized_keys:
-      - ""
   - name: devops
     groups: wheel
-    lock_passwd: true
-    ssh_authorized_keys:
-      - ""
 runcmd:
   - ["tailscale", "up", "--auth-key=xxx", "--ssh"]
